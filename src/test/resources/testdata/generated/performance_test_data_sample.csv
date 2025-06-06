@@ -1,0 +1,31 @@
+brand,country,language,customer_type,sku,product_name,promotion_name,discount_type,discount_value,original_price,promotional_price_expected,campaign_type,thread_id,request_id
+Zara,ES,es,guest,PERF001ES,Performance Test Dress 1,Load Test 20% Off,PERCENTAGE,20,89.95,71.96,performance,1,1
+Zara,ES,es,member,PERF002ES,Performance Test Shirt 2,Load Test 15% Off,PERCENTAGE,15,59.95,50.96,performance,1,2
+Zara,ES,es,vip,PERF003ES,Performance Test Jacket 3,Load Test 30% Off,PERCENTAGE,30,199.95,139.97,performance,1,3
+Bershka,FR,fr,guest,PERF004FR,Performance Test Jeans 4,Load Test 10% Off,PERCENTAGE,10,49.95,44.96,performance,1,4
+Bershka,FR,fr,student,PERF005FR,Performance Test Hoodie 5,Load Test 25% Off,PERCENTAGE,25,69.95,52.46,performance,1,5
+Pull&Bear,DE,de,member,PERF006DE,Performance Test Shoes 6,Load Test 18% Off,PERCENTAGE,18,79.95,65.56,performance,1,6
+Stradivarius,GB,en,guest,PERF007GB,Performance Test Bag 7,Load Test 22% Off,PERCENTAGE,22,39.95,31.16,performance,1,7
+Massimo Dutti,IT,it,premium,PERF008IT,Performance Test Blouse 8,Load Test 35% Off,PERCENTAGE,35,159.95,103.97,performance,1,8
+Oysho,ES,es,guest,PERF009ES,Performance Test Leggings 9,Load Test 12% Off,PERCENTAGE,12,44.95,39.56,performance,1,9
+Zara Home,PT,pt,member,PERF010PT,Performance Test Cushion 10,Load Test 28% Off,PERCENTAGE,28,29.95,21.56,performance,1,10
+Zara,ES,es,guest,PERF011ES,Performance Test Dress 11,Concurrent Test 20% Off,PERCENTAGE,20,89.95,71.96,performance,2,11
+Zara,ES,es,member,PERF012ES,Performance Test Shirt 12,Concurrent Test 15% Off,PERCENTAGE,15,59.95,50.96,performance,2,12
+Zara,ES,es,vip,PERF013ES,Performance Test Jacket 13,Concurrent Test 30% Off,PERCENTAGE,30,199.95,139.97,performance,2,13
+Bershka,FR,fr,guest,PERF014FR,Performance Test Jeans 14,Concurrent Test 10% Off,PERCENTAGE,10,49.95,44.96,performance,2,14
+Bershka,FR,fr,student,PERF015FR,Performance Test Hoodie 15,Concurrent Test 25% Off,PERCENTAGE,25,69.95,52.46,performance,2,15
+Pull&Bear,DE,de,member,PERF016DE,Performance Test Shoes 16,Concurrent Test 18% Off,PERCENTAGE,18,79.95,65.56,performance,2,16
+Stradivarius,GB,en,guest,PERF017GB,Performance Test Bag 17,Concurrent Test 22% Off,PERCENTAGE,22,39.95,31.16,performance,2,17
+Massimo Dutti,IT,it,premium,PERF018IT,Performance Test Blouse 18,Concurrent Test 35% Off,PERCENTAGE,35,159.95,103.97,performance,2,18
+Oysho,ES,es,guest,PERF019ES,Performance Test Leggings 19,Concurrent Test 12% Off,PERCENTAGE,12,44.95,39.56,performance,2,19
+Zara Home,PT,pt,member,PERF020PT,Performance Test Cushion 20,Concurrent Test 28% Off,PERCENTAGE,28,29.95,21.56,performance,2,20
+Zara,US,en,guest,PERF021US,Performance Test Dress 21,Stress Test 20% Off,PERCENTAGE,20,89.95,71.96,performance,3,21
+Zara,US,en,member,PERF022US,Performance Test Shirt 22,Stress Test 15% Off,PERCENTAGE,15,59.95,50.96,performance,3,22
+Zara,US,en,vip,PERF023US,Performance Test Jacket 23,Stress Test 30% Off,PERCENTAGE,30,199.95,139.97,performance,3,23
+Bershka,CA,en,guest,PERF024CA,Performance Test Jeans 24,Stress Test 10% Off,PERCENTAGE,10,49.95,44.96,performance,3,24
+Bershka,CA,en,student,PERF025CA,Performance Test Hoodie 25,Stress Test 25% Off,PERCENTAGE,25,69.95,52.46,performance,3,25
+Pull&Bear,AU,en,member,PERF026AU,Performance Test Shoes 26,Stress Test 18% Off,PERCENTAGE,18,79.95,65.56,performance,3,26
+Stradivarius,NZ,en,guest,PERF027NZ,Performance Test Bag 27,Stress Test 22% Off,PERCENTAGE,22,39.95,31.16,performance,3,27
+Massimo Dutti,SG,en,premium,PERF028SG,Performance Test Blouse 28,Stress Test 35% Off,PERCENTAGE,35,159.95,103.97,performance,3,28
+Oysho,HK,en,guest,PERF029HK,Performance Test Leggings 29,Stress Test 12% Off,PERCENTAGE,12,44.95,39.56,performance,3,29
+Zara Home,MY,en,member,PERF030MY,Performance Test Cushion 30,Stress Test 28% Off,PERCENTAGE,28,29.95,21.56,performance,3,30

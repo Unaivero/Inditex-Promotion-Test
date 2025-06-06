@@ -1,0 +1,39 @@
+[
+  {
+    "name": "Ignored tests",
+    "matchedStatuses": ["skipped"]
+  },
+  {
+    "name": "Infrastructure problems",
+    "matchedStatuses": ["broken", "failed"],
+    "messageRegex": ".*(timeout|connection|network|socket).*"
+  },
+  {
+    "name": "Outdated tests",
+    "matchedStatuses": ["broken"],
+    "traceRegex": ".*NoSuchMethodError.*"
+  },
+  {
+    "name": "Product defects",
+    "matchedStatuses": ["failed"]
+  },
+  {
+    "name": "Test defects",
+    "matchedStatuses": ["broken"]
+  },
+  {
+    "name": "WebDriver issues",
+    "matchedStatuses": ["broken", "failed"],
+    "messageRegex": ".*(webdriver|selenium|stale element|element not found).*"
+  },
+  {
+    "name": "Security issues",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*(security|xss|injection|authentication).*"
+  },
+  {
+    "name": "Performance issues",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*(timeout|performance|slow|load time).*"
+  }
+]

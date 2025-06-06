@@ -1,0 +1,51 @@
+brand,country,language,customer_type,sku,product_name,promotion_name,discount_type,discount_value,original_price,promotional_price_expected,campaign_type,min_quantity,max_quantity,bundle_description
+Zara,ES,es,guest,BULK001ES,Basic T-Shirt Collection,Buy 2 Get 1 Free,MULTI_BUY,33,24.95,16.63,bulk,3,99,Buy any 2 basic tees and get the 3rd one free
+Zara,FR,fr,member,BULK002FR,Premium Shirt Bundle,Buy 3 Pay for 2,MULTI_BUY,33,89.95,59.97,bulk,3,6,Purchase 3 premium shirts and pay for only 2
+Bershka,DE,de,student,BULK003DE,Student Jeans Pack,3 for 99EUR,FIXED_BUNDLE,25,45.95,33.00,bulk,3,3,Special student pack - 3 jeans for 99EUR
+Pull&Bear,GB,en,guest,BULK004GB,Basic Hoodie Deal,Buy 2 Get 50% Off 3rd,TIERED_DISCOUNT,50,39.95,33.29,bulk,3,99,Buy 2 hoodies at full price and get 50% off additional items
+Stradivarius,IT,it,member,BULK005IT,Accessories Mix & Match,Any 4 for 60EUR,FIXED_BUNDLE,33,22.95,15.00,bulk,4,12,Mix and match any 4 accessories for just 60EUR
+Massimo Dutti,ES,es,premium,BULK006ES,Luxury Shirt Collection,Buy 2 Get 30% Off Next,TIERED_DISCOUNT,30,149.95,129.96,bulk,3,10,Premium members: Buy 2 luxury shirts get 30% off additional
+Oysho,PT,pt,guest,BULK007PT,Activewear Complete Set,Full Set 25% Off,PERCENTAGE,25,199.95,149.96,bulk,1,1,Complete activewear set with 25% discount
+Zara Home,NL,nl,member,BULK008NL,Room Makeover Bundle,5 Items 35% Off,PERCENTAGE,35,299.95,194.97,bulk,5,10,Transform your room with 5 items and save 35%
+Lefties,ES,es,guest,BULK009ES,Family Pack Basics,10 Items 20% Off,PERCENTAGE,20,149.95,119.96,bulk,10,20,Family essentials pack with volume discount
+Zara,US,en,corporate,BULK010US,Corporate Wardrobe,Business Bundle 40% Off,PERCENTAGE,40,999.95,599.97,bulk,1,1,Complete professional wardrobe for corporate clients
+Bershka,CA,en,student,BULK011CA,Campus Starter Pack,Student Bundle 30% Off,PERCENTAGE,30,249.95,174.97,bulk,1,1,Everything you need for campus life
+Pull&Bear,AU,en,guest,BULK012AU,Summer Essentials,Beach Bundle 28% Off,PERCENTAGE,28,179.95,129.56,bulk,1,1,Complete summer wardrobe for beach season
+Stradivarius,BR,pt,member,BULK013BR,Party Collection,Night Out Bundle 35% Off,PERCENTAGE,35,299.95,194.97,bulk,1,1,Complete party outfit with accessories
+Massimo Dutti,MX,es,vip,BULK014MX,VIP Luxury Bundle,Exclusive Collection 45% Off,PERCENTAGE,45,1299.95,714.97,bulk,1,1,Exclusive VIP collection with maximum savings
+Oysho,AR,es,guest,BULK015AR,Fitness Journey Package,Workout Complete 22% Off,PERCENTAGE,22,199.95,155.96,bulk,1,1,Everything needed for your fitness journey
+Zara,ES,es,guest,BULK016ES,Seasonal Transition,Buy 4 Get 1 Free,MULTI_BUY,20,59.95,47.96,bulk,5,25,Seasonal wardrobe transition with free item
+Bershka,FR,fr,member,BULK017FR,Trend Starter Pack,Fashion Bundle 26% Off,PERCENTAGE,26,189.95,140.56,bulk,1,1,Latest trends in one convenient bundle
+Pull&Bear,DE,de,guest,BULK018DE,Weekend Casual,Relax Bundle 24% Off,PERCENTAGE,24,129.95,98.76,bulk,1,1,Perfect weekend casual wear collection
+Stradivarius,GB,en,student,BULK019GB,University Chic,Student Style 18% Off,PERCENTAGE,18,159.95,131.16,bulk,1,1,Stylish university wardrobe essentials
+Massimo Dutti,IT,it,premium,BULK020IT,Business Excellence,Professional Bundle 38% Off,PERCENTAGE,38,799.95,495.97,bulk,1,1,Premium business wardrobe for executives
+Oysho,ES,es,corporate,BULK021ES,Corporate Wellness,Office Fitness 20% Off,PERCENTAGE,20,149.95,119.96,bulk,1,1,Workplace wellness and fitness essentials
+Zara Home,PT,pt,guest,BULK022PT,Home Comfort,Cozy Living 30% Off,PERCENTAGE,30,199.95,139.97,bulk,1,1,Create the perfect cozy living space
+Lefties,NL,nl,member,BULK023NL,Value Family Pack,Household Essentials 15% Off,PERCENTAGE,15,299.95,254.96,bulk,1,1,Essential items for the whole family
+Zara,BE,fr,guest,BULK024BE,Belgian Elegance,Style Bundle 32% Off,PERCENTAGE,32,249.95,169.97,bulk,1,1,Elegant Belgian-inspired fashion collection
+Bershka,AT,de,student,BULK025AT,Alpine Adventure,Mountain Style 21% Off,PERCENTAGE,21,179.95,142.16,bulk,1,1,Adventure-ready alpine clothing collection
+Pull&Bear,CH,de,member,BULK026CH,Swiss Quality,Premium Bundle 29% Off,PERCENTAGE,29,219.95,156.16,bulk,1,1,Swiss-quality casual wear collection
+Stradivarius,IE,en,guest,BULK027IE,Irish Charm,Celtic Collection 27% Off,PERCENTAGE,27,169.95,124.06,bulk,1,1,Irish-inspired fashion with modern twist
+Massimo Dutti,SE,sv,premium,BULK028SE,Scandinavian Luxury,Nordic Premium 42% Off,PERCENTAGE,42,599.95,347.97,bulk,1,1,Scandinavian luxury with premium materials
+Oysho,DK,da,guest,BULK029DK,Danish Design,Hygge Collection 25% Off,PERCENTAGE,25,139.95,104.96,bulk,1,1,Danish hygge lifestyle collection
+Zara,NO,no,member,BULK030NO,Norwegian Natural,Fjord Collection 34% Off,PERCENTAGE,34,229.95,151.77,bulk,1,1,Norwegian nature-inspired wardrobe
+Bershka,FI,fi,student,BULK031FI,Finnish Fresh,Arctic Style 19% Off,PERCENTAGE,19,149.95,121.46,bulk,1,1,Fresh Finnish fashion for students
+Pull&Bear,PL,pl,guest,BULK032PL,Polish Pride,Heritage Bundle 23% Off,PERCENTAGE,23,129.95,100.06,bulk,1,1,Polish heritage meets modern style
+Stradivarius,CZ,cs,member,BULK033CZ,Czech Chic,Prague Style 31% Off,PERCENTAGE,31,189.95,131.07,bulk,1,1,Chic Prague-inspired fashion collection
+Massimo Dutti,RO,ro,premium,BULK034RO,Romanian Elegance,Luxury Heritage 39% Off,PERCENTAGE,39,449.95,274.57,bulk,1,1,Romanian luxury with traditional elegance
+Oysho,HR,hr,guest,BULK035HR,Croatian Coast,Adriatic Collection 26% Off,PERCENTAGE,26,159.95,118.36,bulk,1,1,Croatian coast-inspired activewear
+Zara Home,JP,ja,member,BULK036JP,Japanese Zen,Minimalist Living 36% Off,PERCENTAGE,36,299.95,191.97,bulk,1,1,Japanese minimalist home collection
+Lefties,CN,zh,student,BULK037CN,Chinese Value,Student Essentials 14% Off,PERCENTAGE,14,199.95,171.96,bulk,1,1,Essential student wardrobe at great value
+Zara,AU,en,guest,BULK038AU,Aussie Casual,Outback Style 28% Off,PERCENTAGE,28,179.95,129.56,bulk,1,1,Australian casual wear for outdoor life
+Bershka,NZ,en,member,BULK039NZ,Kiwi Cool,Pacific Collection 24% Off,PERCENTAGE,24,149.95,113.96,bulk,1,1,New Zealand Pacific-inspired fashion
+Pull&Bear,SG,en,guest,BULK040SG,Singapore Style,Tropical Urban 22% Off,PERCENTAGE,22,139.95,109.16,bulk,1,1,Singapore urban tropical fashion
+Stradivarius,HK,en,student,BULK041HK,Hong Kong Hustle,City Style 20% Off,PERCENTAGE,20,169.95,135.96,bulk,1,1,Hong Kong city lifestyle collection
+Massimo Dutti,MY,en,premium,BULK042MY,Malaysian Luxury,Tropical Premium 37% Off,PERCENTAGE,37,399.95,251.97,bulk,1,1,Malaysian luxury tropical collection
+Oysho,TH,en,guest,BULK043TH,Thai Tranquil,Wellness Journey 25% Off,PERCENTAGE,25,179.95,134.96,bulk,1,1,Thai-inspired wellness and fitness
+Zara,KR,ko,member,BULK044KR,Korean Trend,K-Style Bundle 33% Off,PERCENTAGE,33,249.95,167.47,bulk,1,1,Korean fashion trends collection
+Bershka,TW,zh,student,BULK045TW,Taiwan Tech,Digital Style 21% Off,PERCENTAGE,21,129.95,102.66,bulk,1,1,Taiwan tech-inspired urban fashion
+Pull&Bear,IN,en,guest,BULK046IN,Indian Fusion,Heritage Modern 26% Off,PERCENTAGE,26,159.95,118.36,bulk,1,1,Indian heritage meets modern style
+Stradivarius,PH,en,member,BULK047PH,Philippine Paradise,Island Collection 29% Off,PERCENTAGE,29,139.95,99.36,bulk,1,1,Philippine island paradise collection
+Massimo Dutti,ID,en,premium,BULK048ID,Indonesian Elegance,Archipelago Luxury 41% Off,PERCENTAGE,41,499.95,294.97,bulk,1,1,Indonesian archipelago luxury collection
+Oysho,VN,en,guest,BULK049VN,Vietnamese Vitality,Energy Collection 23% Off,PERCENTAGE,23,119.95,92.36,bulk,1,1,Vietnamese vitality and energy collection
+Zara Home,ZA,en,member,BULK050ZA,South African Safari,African Luxury 35% Off,PERCENTAGE,35,259.95,168.97,bulk,1,1,South African safari luxury home collection

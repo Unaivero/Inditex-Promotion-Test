@@ -1,0 +1,13 @@
+sku,brand,country,language,customer_type,invalid_code,expected_error,test_scenario
+ZARA001ES,Zara,ES,Spanish,guest,INVALID123,Invalid promotion code,Invalid code format
+ZARA001ES,Zara,ES,Spanish,guest,EXPIRED2022,Promotion code has expired,Expired promotion
+ZARA001ES,Zara,ES,Spanish,guest,WRONGBRAND,Promotion not valid for this item,Brand mismatch
+ZARA001ES,Zara,ES,Spanish,guest,,Please enter a promotion code,Empty code
+ZARA001ES,Zara,ES,Spanish,guest,<script>alert('xss')</script>,Invalid characters in code,XSS injection
+ZARA001ES,Zara,ES,Spanish,guest,'; DROP TABLE promotions; --,Invalid characters in code,SQL injection
+BERSHKA001ES,Bershka,ES,Spanish,member,ZARAONLY,Promotion not valid for this brand,Cross-brand code
+ZARA001ES,Zara,ES,Spanish,guest,TOOLONGPROMOTIONCODE123456789,Code too long,Length validation
+ZARA001ES,Zara,ES,Spanish,guest,ABC,Code too short,Minimum length validation
+ZARA001ES,Zara,ES,Spanish,guest,CASE_SENSITIVE,Code not found,Case sensitivity
+ZARA001US,Zara,US,English,guest,EURONLY,Promotion not valid in this region,Regional restriction
+ZARA001ES,Zara,ES,Spanish,guest,MEMBERONLY,Please sign in to use this code,Customer type restriction

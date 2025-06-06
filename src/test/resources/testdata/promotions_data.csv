@@ -1,0 +1,13 @@
+brand,country,language,customer_type,sku,product_name,promotion_name,discount_type,discount_value,original_price,promotional_price_expected
+Zara,ES,es,guest,ZARA001ES,Summer Dress,Summer Sale 20% Off,PERCENTAGE,20,50.00,40.00
+Zara,FR,fr,member,ZARA002FR,Men's Shirt,New Collection 10EUR Off,FIXED_AMOUNT,10,75.00,65.00
+Zara,DE,de,guest,ZARA003DE,Knit Sweater,Weekend Special 15%,PERCENTAGE,15,60.00,51.00
+Bershka,ES,es,member,BSK001ES,Skinny Jeans,Student Discount 10%,PERCENTAGE,10,40.00,36.00
+Bershka,PT,pt,guest,BSK002PT,Graphic T-Shirt,Flash Sale 5EUR,FIXED_AMOUNT,5,25.00,20.00
+Zara,GB,en,member,ZARA004GB,Leather Jacket,Loyalty Discount 25%,PERCENTAGE,25,120.00,90.00
+Bershka,IT,it,guest,BSK003IT,Hoodie,App Exclusive 10% Off,PERCENTAGE,10,45.00,40.50
+Zara,US,en,member,ZARA005US,Winter Coat,Black Friday 30%,PERCENTAGE,30,150.00,105.00
+Pull&Bear,ES,es,guest,PB001ES,Basic T-Shirt,2 for 15EUR,MULTI_BUY,N/A,10.00,7.50
+Massimo Dutti,DE,de,member,MD001DE,Silk Blouse,Premium Member Offer,PERCENTAGE,10,90.00,81.00
+Stradivarius,FR,fr,guest,STR001FR,Floral Skirt,Online Only 15% Off,PERCENTAGE,15,35.00,29.75
+Oysho,ES,es,member,OY001ES,Yoga Leggings,Wellness Wednesday 5EUR,FIXED_AMOUNT,5,30.00,25.00

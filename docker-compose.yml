@@ -1,0 +1,228 @@
+version: '3.8'
+
+services:
+  # Selenium Hub
+  selenium-hub:
+    image: selenium/hub:4.15.0
+    container_name: selenium-hub
+    ports:
+      - "4444:4444"
+      - "4442:4442"
+      - "4443:4443"
+    environment:
+      - GRID_MAX_SESSION=16
+      - GRID_NEW_SESSION_WAIT_TIMEOUT=10000
+      - GRID_SESSION_TIMEOUT=300
+      - GRID_SESSION_RETRY_INTERVAL=5
+    networks:
+      - test-network
+    volumes:
+      - /dev/shm:/dev/shm
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4444/wd/hub/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Chrome Nodes
+  chrome-node-1:
+    image: selenium/node-chrome:4.15.0
+    container_name: chrome-node-1
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+      - NODE_MAX_INSTANCES=2
+      - NODE_MAX_SESSION=2
+    networks:
+      - test-network
+    volumes:
+      - /dev/shm:/dev/shm
+    shm_size: 2gb
+
+  chrome-node-2:
+    image: selenium/node-chrome:4.15.0
+    container_name: chrome-node-2
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+      - NODE_MAX_INSTANCES=2
+      - NODE_MAX_SESSION=2
+    networks:
+      - test-network
+    volumes:
+      - /dev/shm:/dev/shm
+    shm_size: 2gb
+
+  # Firefox Nodes
+  firefox-node-1:
+    image: selenium/node-firefox:4.15.0
+    container_name: firefox-node-1
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+      - NODE_MAX_INSTANCES=2
+      - NODE_MAX_SESSION=2
+    networks:
+      - test-network
+    volumes:
+      - /dev/shm:/dev/shm
+    shm_size: 2gb
+
+  # Edge Node
+  edge-node:
+    image: selenium/node-edge:4.15.0
+    container_name: edge-node
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+      - NODE_MAX_INSTANCES=1
+      - NODE_MAX_SESSION=1
+    networks:
+      - test-network
+    volumes:
+      - /dev/shm:/dev/shm
+    shm_size: 2gb
+
+  # Test Execution Service
+  inditex-promotions-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: inditex-promotions-test
+    depends_on:
+      - selenium-hub
+      - chrome-node-1
+      - chrome-node-2
+      - firefox-node-1
+      - edge-node
+    environment:
+      - TEST_ENVIRONMENT=${TEST_ENVIRONMENT:-dev}
+      - BROWSER_TYPE=${BROWSER_TYPE:-chrome}
+      - HEADLESS=${HEADLESS:-true}
+      - PARALLEL_THREAD_COUNT=${PARALLEL_THREAD_COUNT:-4}
+      - GRID_ENABLED=true
+      - GRID_URL=http://selenium-hub:4444/wd/hub
+      - VNC_ENABLED=${VNC_ENABLED:-false}
+      - GENERATE_REPORT=${GENERATE_REPORT:-true}
+      - TEST_TYPE=${TEST_TYPE:-regression}
+      - JAVA_OPTS=-Xmx2g -Xms1g
+    networks:
+      - test-network
+    volumes:
+      - ./target/allure-results:/app/target/allure-results
+      - ./logs:/app/logs
+      - ./screenshots:/app/screenshots
+      - ./videos:/app/videos
+    ports:
+      - "5900:5900"  # VNC port for debugging
+      - "8080:8080"  # Allure report server
+    command: []
+
+  # Database for test data (optional)
+  postgres-testdb:
+    image: postgres:15
+    container_name: postgres-testdb
+    environment:
+      - POSTGRES_DB=promotions_test
+      - POSTGRES_USER=test_user
+      - POSTGRES_PASSWORD=test_password
+    ports:
+      - "5432:5432"
+    networks:
+      - test-network
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./src/test/resources/sql:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U test_user -d promotions_test"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Redis for caching (optional)
+  redis-cache:
+    image: redis:7-alpine
+    container_name: redis-cache
+    ports:
+      - "6379:6379"
+    networks:
+      - test-network
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Allure Report Service
+  allure-report:
+    image: frankescobar/allure-docker-service:2.22.1
+    container_name: allure-report
+    ports:
+      - "5050:5050"
+    networks:
+      - test-network
+    environment:
+      - CHECK_RESULTS_EVERY_SECONDS=3
+      - KEEP_HISTORY=TRUE
+      - KEEP_HISTORY_LATEST=10
+    volumes:
+      - ./target/allure-results:/app/allure-results
+      - ./target/allure-reports:/app/default-reports
+    depends_on:
+      - inditex-promotions-test
+
+  # Monitoring with Prometheus (optional)
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    networks:
+      - test-network
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+
+  # Grafana for visualization (optional)
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    networks:
+      - test-network
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana:/etc/grafana/provisioning
+    depends_on:
+      - prometheus
+
+networks:
+  test-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  redis_data:
+  prometheus_data:
+  grafana_data:

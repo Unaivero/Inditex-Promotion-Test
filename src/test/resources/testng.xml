@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="InditexPromotionsTestSuite" parallel="methods" thread-count="4" verbose="1">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="environment" value="dev"/>
+    
+    <!-- Smoke Test Suite -->
+    <test name="SmokeTests" preserve-order="false" parallel="methods" thread-count="2">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.inditex.test.runners.TestRunner"/>
+        </classes>
+    </test>
+    
+    <!-- Regression Test Suite -->
+    <test name="RegressionTests" preserve-order="false" parallel="methods" thread-count="4">
+        <groups>
+            <run>
+                <include name="regression"/>
+                <exclude name="flaky"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.inditex.test.runners.TestRunner"/>
+        </classes>
+    </test>
+    
+    <!-- API Test Suite -->
+    <test name="ApiTests" preserve-order="false" parallel="methods" thread-count="6">
+        <groups>
+            <run>
+                <include name="api"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.inditex.test.runners.ApiTestRunner"/>
+        </classes>
+    </test>
+    
+    <!-- Mobile Test Suite -->
+    <test name="MobileTests" preserve-order="false" parallel="methods" thread-count="3">
+        <groups>
+            <run>
+                <include name="mobile"/>
+                <include name="responsive"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.inditex.test.runners.MobileTestRunner"/>
+        </classes>
+    </test>
+    
+    <!-- Accessibility Test Suite -->
+    <test name="AccessibilityTests" preserve-order="false" parallel="methods" thread-count="2">
+        <groups>
+            <run>
+                <include name="accessibility"/>
+                <include name="wcag"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.inditex.test.runners.AccessibilityTestRunner"/>
+        </classes>
+    </test>
+    
+    <!-- Security Test Suite -->
+    <test name="SecurityTests" preserve-order="false" parallel="methods" thread-count="2">
+        <groups>
+            <run>
+                <include name="security"/>
+                <include name="negative"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.inditex.test.runners.SecurityTestRunner"/>
+        </classes>
+    </test>
+    
+    <!-- Performance Test Suite -->
+    <test name="PerformanceTests" preserve-order="false" parallel="methods" thread-count="2">
+        <groups>
+            <run>
+                <include name="performance"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.inditex.test.runners.PerformanceTestRunner"/>
+        </classes>
+    </test>
+    
+    <!-- Cross-Browser Test Suite -->
+    <test name="CrossBrowserTests" preserve-order="false" parallel="methods" thread-count="3">
+        <parameter name="browser" value="chrome,firefox,edge"/>
+        <groups>
+            <run>
+                <include name="cross-browser"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.inditex.test.runners.CrossBrowserTestRunner"/>
+        </classes>
+    </test>
+
+    <!-- Contract Test Suite -->
+    <test name="ContractTests" preserve-order="false" parallel="methods" thread-count="2">
+        <groups>
+            <run>
+                <include name="contract"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.inditex.test.runners.ContractTestRunner"/>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="com.inditex.test.listeners.AllureTestListener"/>
+        <listener class-name="com.inditex.test.listeners.TestExecutionListener"/>
+        <listener class-name="com.inditex.test.listeners.ScreenshotListener"/>
+    </listeners>
+</suite>

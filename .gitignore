@@ -1,0 +1,108 @@
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Virtual machine crash logs
+hs_err_pid*
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# IDE
+.idea/
+*.iws
+*.iml
+*.ipr
+.vscode/
+.project
+.classpath
+.settings/
+.metadata
+.recommenders
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Test results
+test-output/
+allure-results/
+allure-report/
+target/allure-results/
+target/cucumber-reports/
+target/surefire-reports/
+target/failsafe-reports/
+target/performance-results/
+target/security-reports/
+screenshots/
+videos/
+logs/
+
+# Environment files
+.env
+.env.local
+.env.staging
+.env.production
+
+# Sensitive configuration
+**/application-*.properties
+!**/application.properties
+!**/application-dev.properties
+!**/application-staging.properties
+!**/application-prod.properties
+
+# Temporary files
+*.tmp
+*.temp
+*~
+
+# JMeter
+jmeter.log
+*.jtl
+
+# Pact files (exclude generated)
+target/pacts/
+
+# Node modules (if any)
+node_modules/
+
+# Docker
+.dockerignore
+
+# Backup files
+*.bak
+*.backup
+
+# Cache
+.cache/

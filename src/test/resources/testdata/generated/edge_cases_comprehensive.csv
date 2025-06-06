@@ -1,0 +1,79 @@
+test_id,brand,country,language,customer_type,promotion_code,expected_error,error_message,test_category,test_description,priority
+SEC001,Zara,ES,es,guest,<script>alert('xss')</script>,SECURITY_VIOLATION,Invalid characters in promotion code,XSS_INJECTION,Security validation should reject malicious input,HIGH
+SEC002,Bershka,FR,fr,guest,'; DROP TABLE promotions; --,SECURITY_VIOLATION,Invalid characters in promotion code,SQL_INJECTION,Security validation should reject malicious input,HIGH
+SEC003,Pull&Bear,DE,de,guest,javascript:alert('xss'),SECURITY_VIOLATION,Invalid characters in promotion code,XSS_INJECTION,Security validation should reject malicious input,HIGH
+SEC004,Stradivarius,GB,en,guest,' OR '1'='1,SECURITY_VIOLATION,Invalid characters in promotion code,SQL_INJECTION,Security validation should reject malicious input,HIGH
+SEC005,Massimo Dutti,IT,it,guest,<img src=x onerror=alert('xss')>,SECURITY_VIOLATION,Invalid characters in promotion code,XSS_INJECTION,Security validation should reject malicious input,HIGH
+SEC006,Oysho,ES,es,guest,'; DELETE FROM users; --,SECURITY_VIOLATION,Invalid characters in promotion code,SQL_INJECTION,Security validation should reject malicious input,HIGH
+SEC007,Zara Home,PT,pt,guest,'\"><script>alert('xss')</script>,SECURITY_VIOLATION,Invalid characters in promotion code,XSS_INJECTION,Security validation should reject malicious input,HIGH
+SEC008,Lefties,NL,nl,guest,' UNION SELECT * FROM promotions --,SECURITY_VIOLATION,Invalid characters in promotion code,SQL_INJECTION,Security validation should reject malicious input,HIGH
+SEC009,Zara,US,en,guest,<svg onload=alert('xss')>,SECURITY_VIOLATION,Invalid characters in promotion code,XSS_INJECTION,Security validation should reject malicious input,HIGH
+SEC010,Bershka,CA,en,guest,admin'--,SECURITY_VIOLATION,Invalid characters in promotion code,SQL_INJECTION,Security validation should reject malicious input,HIGH
+BND001,Zara,ES,es,guest,TESTCODEBND001,INVALID_PRICE,Price must be greater than zero,PRICE_BOUNDARY,Testing price boundary value: 0.01,MEDIUM
+BND002,Bershka,FR,fr,member,DISCOUNT-1,NEGATIVE_DISCOUNT,Discount cannot be negative,DISCOUNT_BOUNDARY,Testing discount boundary value: -1%,HIGH
+BND003,Stradivarius,DE,de,guest,DISCOUNT101,DISCOUNT_TOO_HIGH,Discount cannot exceed 100%,DISCOUNT_BOUNDARY,Testing discount boundary value: 101%,HIGH
+BND004,Pull&Bear,GB,en,guest,TESTCODEBND004,PRICE_TOO_HIGH,Price exceeds maximum allowed,PRICE_BOUNDARY,Testing price boundary value: 10000.01,HIGH
+BND005,Massimo Dutti,IT,it,guest,DISCOUNT0,VALID,Valid discount,DISCOUNT_BOUNDARY,Testing discount boundary value: 0%,MEDIUM
+BND006,Oysho,ES,es,guest,DISCOUNT100,VALID,Valid discount,DISCOUNT_BOUNDARY,Testing discount boundary value: 100%,MEDIUM
+BND007,Zara,PT,pt,guest,TESTCODEBND007,VALID,Valid price,PRICE_BOUNDARY,Testing price boundary value: 1.00,MEDIUM
+BND008,Bershka,NL,nl,guest,TESTCODEBND008,VALID,Valid price,PRICE_BOUNDARY,Testing price boundary value: 999.99,MEDIUM
+BND009,Stradivarius,BE,fr,guest,DATE19000101,PROMOTION_EXPIRED,Promotion has expired,DATE_BOUNDARY,Testing promotion date: 1900-01-01,MEDIUM
+BND010,Pull&Bear,AT,de,guest,DATE20000229,PROMOTION_EXPIRED,Promotion has expired,DATE_BOUNDARY,Testing promotion date: 2000-02-29,MEDIUM
+INV001,Zara,ES,es,guest,,EMPTY_CODE,Invalid promotion code format,INVALID_CODE_FORMAT,Testing invalid promotion code: '',MEDIUM
+INV002,Bershka,FR,fr,guest,TOOLONGPROMOTIONCODE123456789012345678901234567890,CODE_TOO_LONG,Invalid promotion code format,INVALID_CODE_FORMAT,Testing invalid promotion code: 'TOOLONGPROMOTIONCODE123456789012345678901234567890',MEDIUM
+INV003,Pull&Bear,DE,de,guest,A,CODE_TOO_SHORT,Invalid promotion code format,INVALID_CODE_FORMAT,Testing invalid promotion code: 'A',MEDIUM
+INV004,Stradivarius,GB,en,guest,   ,EMPTY_CODE,Invalid promotion code format,INVALID_CODE_FORMAT,Testing invalid promotion code: '   ',MEDIUM
+INV005,Massimo Dutti,IT,it,invalid,VALIDCODE123,INVALID_CUSTOMER_TYPE,Invalid customer type,INVALID_CUSTOMER,Testing invalid customer type: 'invalid',MEDIUM
+INV006,Oysho,ES,es,,VALIDCODE123,INVALID_CUSTOMER_TYPE,Invalid customer type,INVALID_CUSTOMER,Testing invalid customer type: '',MEDIUM
+INV007,Zara Home,PT,pt,admin,VALIDCODE123,INVALID_CUSTOMER_TYPE,Invalid customer type,INVALID_CUSTOMER,Testing invalid customer type: 'admin',MEDIUM
+INV008,Lefties,NL,nl,root,VALIDCODE123,INVALID_CUSTOMER_TYPE,Invalid customer type,INVALID_CUSTOMER,Testing invalid customer type: 'root',MEDIUM
+INV009,Zara,US,en,guest,inv@lid,INVALID_FORMAT,Invalid promotion code format,INVALID_CODE_FORMAT,Testing invalid promotion code: 'inv@lid',MEDIUM
+INV010,Bershka,CA,en,guest,inv#lid,INVALID_FORMAT,Invalid promotion code format,INVALID_CODE_FORMAT,Testing invalid promotion code: 'inv#lid',MEDIUM
+INV011,Pull&Bear,MX,es,guest,null,INVALID_FORMAT,Invalid promotion code format,INVALID_CODE_FORMAT,Testing invalid promotion code: 'null',MEDIUM
+INV012,Stradivarius,BR,pt,guest,undefined,INVALID_FORMAT,Invalid promotion code format,INVALID_CODE_FORMAT,Testing invalid promotion code: 'undefined',MEDIUM
+INV013,Oysho,IT,it,member,VALIDCODE123,INVALID_SKU,Invalid SKU format,INVALID_SKU_FORMAT,Testing invalid SKU: '',MEDIUM
+INV014,Massimo Dutti,FR,fr,guest,VALIDCODE123,INVALID_SKU,Invalid SKU format,INVALID_SKU_FORMAT,Testing invalid SKU: '123',MEDIUM
+INV015,Zara,DE,de,guest,VALIDCODE123,INVALID_SKU,Invalid SKU format,INVALID_SKU_FORMAT,Testing invalid SKU: 'TOOLONGSKU123456789012345678901234567890',MEDIUM
+INV016,Bershka,ES,es,guest,VALIDCODE123,INVALID_LOCALE,Invalid country/language combination,INVALID_LOCALE,Testing invalid locale: XX/invalid,LOW
+INV017,Pull&Bear,GB,en,guest,VALIDCODE123,INVALID_LOCALE,Invalid country/language combination,INVALID_LOCALE,Testing invalid locale: ES/en,LOW
+INV018,Stradivarius,FR,fr,guest,VALIDCODE123,INVALID_LOCALE,Invalid country/language combination,INVALID_LOCALE,Testing invalid locale: US/fr,LOW
+BIZ001,Zara,ES,es,member,EXPIRED2023,PROMOTION_EXPIRED,This promotion has expired,EXPIRED_PROMOTION,Testing expired promotion behavior,HIGH
+BIZ002,Bershka,FR,fr,guest,INACTIVE2024,PROMOTION_INACTIVE,This promotion is not currently active,INACTIVE_PROMOTION,Testing inactive promotion behavior,HIGH
+BIZ003,Pull&Bear,DE,de,vip,EXCLUSIVE2024,PROMOTION_CONFLICT,This promotion cannot be combined with VIP discounts,EXCLUSION_CONFLICT,Testing promotion exclusion rules,MEDIUM
+BIZ004,Stradivarius,IT,it,guest,LIMITEDQTY,QUANTITY_EXCEEDED,Maximum quantity for this promotion exceeded,QUANTITY_LIMIT,Testing quantity limitation enforcement,MEDIUM
+BIZ005,Massimo Dutti,GB,en,member,MINORDER50,MINIMUM_ORDER_NOT_MET,Minimum order value not met for this promotion,MINIMUM_ORDER,Testing minimum order value requirements,MEDIUM
+BIZ006,Oysho,US,en,premium,NOSTACKING,STACKING_NOT_ALLOWED,This promotion cannot be combined with other discounts,STACKING_CONFLICT,Testing promotion stacking restrictions,MEDIUM
+BIZ007,Zara Home,PT,pt,guest,REGIONLOCKED,REGION_RESTRICTED,This promotion is not available in your region,REGION_RESTRICTION,Testing geographic promotion restrictions,MEDIUM
+BIZ008,Lefties,ES,es,student,AGELIMITED,AGE_RESTRICTED,This promotion requires age verification,AGE_RESTRICTION,Testing age-based promotion limits,MEDIUM
+BIZ009,Zara,FR,fr,corporate,MEMBERSONLY,MEMBERSHIP_REQUIRED,This promotion requires membership,MEMBERSHIP_RESTRICTION,Testing membership requirements,MEDIUM
+BIZ010,Bershka,DE,de,guest,SOLDOUT,PRODUCT_UNAVAILABLE,This promotion is no longer available,AVAILABILITY_RESTRICTION,Testing product availability checks,HIGH
+BIZ011,Pull&Bear,GB,en,guest,MAXUSES,USAGE_LIMIT_EXCEEDED,You have reached the maximum usage limit for this promotion,USAGE_LIMIT,Testing promotion usage limits,MEDIUM
+BIZ012,Stradivarius,IT,it,member,WEEKENDONLY,TIME_RESTRICTED,This promotion is only valid on weekends,TIME_RESTRICTION,Testing time-based promotion restrictions,MEDIUM
+BIZ013,Massimo Dutti,ES,es,vip,FIRSTTIME,ELIGIBILITY_CONFLICT,This promotion is only for first-time customers,ELIGIBILITY_RESTRICTION,Testing customer eligibility rules,MEDIUM
+BIZ014,Oysho,FR,fr,guest,CATEGORYEXCLUDED,CATEGORY_EXCLUDED,This promotion does not apply to sale items,CATEGORY_RESTRICTION,Testing product category exclusions,MEDIUM
+BIZ015,Zara,US,en,premium,CHANNELEXCLUSIVE,CHANNEL_RESTRICTED,This promotion is only valid for online purchases,CHANNEL_RESTRICTION,Testing sales channel restrictions,MEDIUM
+PER001,Zara,ES,es,guest,LOADTEST001,VALID,Valid promotion code,PERFORMANCE_TEST,Load testing with valid promotion code,LOW
+PER002,Bershka,FR,fr,member,LOADTEST002,VALID,Valid promotion code,PERFORMANCE_TEST,Load testing with member discount,LOW
+PER003,Pull&Bear,DE,de,guest,LOADTEST003,VALID,Valid promotion code,PERFORMANCE_TEST,Concurrent user simulation,LOW
+PER004,Stradivarius,GB,en,vip,LOADTEST004,VALID,Valid promotion code,PERFORMANCE_TEST,VIP customer load testing,LOW
+PER005,Massimo Dutti,IT,it,premium,LOADTEST005,VALID,Valid promotion code,PERFORMANCE_TEST,Premium customer performance test,LOW
+PER006,Oysho,ES,es,student,LOADTEST006,VALID,Valid promotion code,PERFORMANCE_TEST,Student discount performance,LOW
+PER007,Zara Home,PT,pt,guest,LOADTEST007,VALID,Valid promotion code,PERFORMANCE_TEST,Home category performance test,LOW
+PER008,Lefties,NL,nl,corporate,LOADTEST008,VALID,Valid promotion code,PERFORMANCE_TEST,Corporate account performance,LOW
+PER009,Zara,US,en,guest,LOADTEST009,VALID,Valid promotion code,PERFORMANCE_TEST,International customer test,LOW
+PER010,Bershka,CA,en,member,LOADTEST010,VALID,Valid promotion code,PERFORMANCE_TEST,Cross-border performance test,LOW
+ACC001,Zara,ES,es,guest,ACCESSIBLE001,VALID,Valid promotion code,ACCESSIBILITY_TEST,Screen reader compatible promotion,LOW
+ACC002,Bershka,FR,fr,member,ACCESSIBLE002,VALID,Valid promotion code,ACCESSIBILITY_TEST,High contrast mode testing,LOW
+ACC003,Pull&Bear,DE,de,guest,ACCESSIBLE003,VALID,Valid promotion code,ACCESSIBILITY_TEST,Keyboard navigation testing,LOW
+ACC004,Stradivarius,GB,en,student,ACCESSIBLE004,VALID,Valid promotion code,ACCESSIBILITY_TEST,Voice control compatibility,LOW
+ACC005,Massimo Dutti,IT,it,premium,ACCESSIBLE005,VALID,Valid promotion code,ACCESSIBILITY_TEST,Large text support testing,LOW
+MOB001,Zara,ES,es,guest,MOBILE001,VALID,Valid promotion code,MOBILE_TEST,iPhone mobile testing,LOW
+MOB002,Bershka,FR,fr,member,MOBILE002,VALID,Valid promotion code,MOBILE_TEST,Android mobile testing,LOW
+MOB003,Pull&Bear,DE,de,guest,MOBILE003,VALID,Valid promotion code,MOBILE_TEST,Tablet responsive testing,LOW
+MOB004,Stradivarius,GB,en,vip,MOBILE004,VALID,Valid promotion code,MOBILE_TEST,Mobile app integration,LOW
+MOB005,Oysho,ES,es,guest,MOBILE005,VALID,Valid promotion code,MOBILE_TEST,Touch gesture testing,LOW
+INT001,Zara,JP,ja,guest,INTL001,VALID,Valid promotion code,INTERNATIONALIZATION,Japanese character support,MEDIUM
+INT002,Bershka,CN,zh,member,INTL002,VALID,Valid promotion code,INTERNATIONALIZATION,Chinese character support,MEDIUM
+INT003,Pull&Bear,AR,es,guest,INTL003,VALID,Valid promotion code,INTERNATIONALIZATION,Spanish locale testing,MEDIUM
+INT004,Stradivarius,BR,pt,student,INTL004,VALID,Valid promotion code,INTERNATIONALIZATION,Portuguese locale testing,MEDIUM
+INT005,Massimo Dutti,RU,ru,premium,INTL005,VALID,Valid promotion code,INTERNATIONALIZATION,Cyrillic character support,MEDIUM
